@@ -1,0 +1,17 @@
+extends baseEmail
+
+block content
+  p Hi #{firstName},
+  p Welcome to MmmM, we're glad to have you 🎉🙏
+  p Your reservation has been successfully updated
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href='http://127.0.0.1:3000/', target='_blank') Return to Desktop Application
+  p If you need any help with booking your next room, please don't hesitate to contact me!
+  p - Mouna Wahada, CEO

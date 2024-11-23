@@ -1,0 +1,21 @@
+extends base
+
+block content
+  main.main    
+    section.section-cta
+      .cta
+        
+        .cta__content
+            .singup-form
+              .book-form
+                h2.heading-secondary.ma-bt-lg Update your reservation
+                form.form.form--update-book
+                  .form__group
+                    label.form__label(for='startDate') Select Start Date and Time:
+                      input#bookId.form__input(type="hidden", name="bookId", value=reservation._id)
+                      input#startDate.form__input(type='datetime-local', name='startDate', value=new Date(reservation.schedule.appointments[0].startDate).toISOString().slice(0, 16), required)
+                  .form__group.ma-bt-md
+                    label.form__label(for='duration') Duration (in minutes):
+                      input#duration.form__input(type='number', name='duration', value=reservation.schedule.appointments[0].duration, min='1', required)
+                  .form__group
+                    button.btn.btn--small.btn--green Update

@@ -1,0 +1,55 @@
+extends base
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg
+        use(xlink:href=`img/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          +navItem('/me', 'Settings', 'settings')
+          +navItem('/mybooking', 'My bookings', 'briefcase')
+          +navItem('#', 'My reviews', 'star')
+          +navItem('#', 'Billing', 'credit-card')
+
+        - if (user.role === 'admin')
+          .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+              +navItem('/managerooms', 'Manage rooms', 'map')
+              +navItem('/manageusers', 'Manage users', 'users', true)
+              +navItem('#', 'Manage reviews', 'star')
+              +navItem('#', 'Manage bookings', 'briefcase')
+
+      .user-view__content
+        .user-view__form-container
+          h2.heading-secondary.ma-bt-md User Management
+          
+          //- Table to display users
+          table.table
+            thead
+              tr
+                th Images
+                th Name
+                th Email
+                th Action
+            tbody
+              each user in users
+                tr
+                  td
+                    //- Check if user and user.photo exist before rendering
+                    if user && user.photo
+                      img.nav__user-img(src=`/img/users/${user.photo}`)
+                  td= user.name
+                  td= user.email
+                  td
+                    form.form.form-user-delete
+                        input#userId.form__input(type="hidden", name="userId", value=user._id)
+                        button.btn.btn--small.btn--red(type="submit") Delete
+
+        .line &nbsp;

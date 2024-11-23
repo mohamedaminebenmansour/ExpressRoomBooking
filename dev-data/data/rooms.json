@@ -1,0 +1,222 @@
+[
+{
+    "_id": "5c88fa8cf4afda39709c2955",
+    "name": "tekup unversity",
+    "slug": "tekup-unversity",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "10.jpg",
+    "image": ["11.jpg", "12.jpg","13.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [ 10.190087200000002,36.89776902039983],
+      "address": "ariena",
+      "description": "hello"
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2951",
+    "name": "elghazella  ",
+    "slug": "elghazella",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 250,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "20.jpg",
+    "image": ["21.jpg", "22.jpg","23.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [10.188360286105809,36.89443026818738],
+      "address": "elghazela",
+      "description": "post"
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c295a",
+    "name": "Palais royal",
+    "slug": "palais-royal",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "30.jpg",
+    "image": ["31.jpg", "32.jpg","33.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [ 10.750747088414444,34.743801033253305],
+      "address": "sfax",
+      "description": "sfax 2000."
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2961",
+    "name": "africa hotel",
+    "slug": "africa hotel",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [ 10.18554661229245,36.800570789474726],
+      "address": "habib thmeur",
+      "description": "bourgiba"
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c295d",
+    "name": "Luxury Suite",
+    "slug": "luxury-suite",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2966",
+    "name": "Luxury Suite0",
+    "slug": "luxury-suite0",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2970",
+    "name": "Luxury Suite1",
+    "slug": "luxury-suite1",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c2974",
+    "name": "Luxury Suite2",
+    "slug": "luxury-suite2",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  },
+  {
+    "_id": "5c88fa8cf4afda39709c296c",
+    "name": "Luxury Suite3",
+    "slug": "luxury-suite3",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  },
+  {
+    "_id": "60fdd71bac9be49dd4f6d7fa",
+    "name": "Luxury Suite4",
+    "slug": "luxury-suite4",
+    "capacity": 2,
+    "rating": 4.8,
+    "ratingsAverge": 4.8,
+    "ratingsQuantity": 25,
+    "price": 200,
+    "priceDiscount": 180,
+    "summary": "A luxurious suite with breathtaking views.",
+    "description": "This suite offers unparalleled luxury and comfort with its spacious interiors and modern amenities.",
+    "imageCover": "luxury-suite-cover.jpg",
+    "image": ["luxury-suite-1.jpg", "luxury-suite-2.jpg"],
+    "createdAt": "2024-04-27T08:00:00.000Z",
+    "location": {
+      "type": "Point",
+      "coordinates": [40.7128, -74.0060],
+      "address": "123 Luxury Street, Cityville",
+      "description": "Prime location with easy access to city attractions."
+    }
+  }
+]

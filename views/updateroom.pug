@@ -1,0 +1,83 @@
+extends base
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg
+        use(xlink:href=`img/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          +navItem('/me', 'Settings', 'settings', true)
+          +navItem('/mybooking', 'My bookings', 'briefcase')
+          +navItem('#', 'My reviews', 'star')
+          +navItem('#', 'Billing', 'credit-card')
+
+        - if (user.role === 'admin')
+          .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+              +navItem('/managerooms', 'Manage rooms', 'map', true)
+              +navItem('/manageusers', 'Manage users', 'users')
+              +navItem('#', 'Manage reviews', 'star')
+              +navItem('#', 'Manage bookings', 'briefcase')
+
+      .user-view
+        .user-view__form-container
+          form.form.form-room-update
+            .form__group
+              label.form__label(for='name') Name
+              input#roomId.form__input(type="hidden", name="roomId", value=room._id)
+              input#name.form__input(type='text', value=room.name, required, name='name')
+            .form__group.ma-bt-md
+              label.form__label(for='capacity') Capacity
+              input#capacity.form__input(type='number', value=room.capacity, required, name='capacity')
+            .form__group.ma-bt-md
+              label.form__label(for='price') Price
+              input#price.form__input(type='number', value=room.price, required, name='price')
+            .form__group
+              label.form__label(for='priceDiscount') Price Discount
+              input#priceDiscount.form__input(type='number' name='priceDiscount' value=room.priceDiscount placeholder='' required='')
+            .form__group.ma-bt-md
+              label.form__label(for='summary') Summary
+              textarea#summary.form__input(type='text', required, name='summary')= room.summary
+            .form__group.ma-bt-md
+              label.form__label(for='description') Description
+              textarea#description.form__input(type='text', name='description')= room.description
+            .form__group.form__photo-upload
+              label.form__label(for='imageCover') Cover Image
+              img.form__user-photo(src=`/img/${room.imageCover}`, alt='Room cover image')
+              input.form__upload(type='file', accept='image/*', id='imageCover', name='imageCover')
+            .form__group.form__photo-upload
+              label.form__label(for='image1') Image 1
+              if room.image[0]
+                img.form__user-photo(src=`/img/${room.image[0]}`, alt='Room image 1')
+              input.form__upload(type='file', accept='image/*', id='image1', name='image1')
+            .form__group.form__photo-upload
+              label.form__label(for='image2') Image 2
+              if room.image[1]
+                img.form__user-photo(src=`/img/${room.image[1]}`, alt='Room image 2')
+              input.form__upload(type='file', accept='image/*', id='image2', name='image2')
+            .form__group.form__photo-upload
+              label.form__label(for='image3') Image 3
+              if room.image[2]
+                img.form__user-photo(src=`/img/${room.image[2]}`, alt='Room image 3')
+              input.form__upload(type='file', accept='image/*', id='image3', name='image3')
+            hr
+            h2 location:
+            .form__group
+              label.form__label(for='coordinates') Coordinates
+              input#coordinates.form__input(type='text' name='coordinates' value=`${room.location.coordinates}` placeholder='latitude, longitude' required='')
+            .form__group
+              label.form__label(for='address') Address
+              input#address.form__input(type='text' name='address' value=room.location.address required='')
+            .form__group
+              label.form__label(for='locationDescription') Location Description
+              input#locationDescription.form__input(type='text' name='locationDescription' value=room.location.description required='')
+
+            .form__group.right
+              button.btn.btn--small.btn--green Save Changes

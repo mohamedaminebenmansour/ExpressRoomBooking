@@ -1,0 +1,69 @@
+extends base
+include _reviewCard
+
+block append head
+  script(src='js/mapbox.js')
+  script(src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet')
+
+mixin overviewBox(label, text, icon)
+  .overview-box__detail
+    svg.overview-box__icon
+      use(xlink:href=`/img/icons.svg#icon-${icon}`)
+    span.overview-box__label= label
+    span.overview-box__text= text
+
+block content
+  section.section-header
+    .header__hero
+      .header__hero-overlay &nbsp;
+      img.header__hero-img(src=`/img/rooms/${room.imageCover}`, alt=`${room.name}`)
+
+    .heading-box
+      h1.heading-primary
+        span= `${room.name} room`
+      .heading-box__group
+        .heading-box__detail
+          svg.heading-box__icon
+            use(xlink:href='/img/icons.svg#icon-clock')
+        .heading-box__detail
+          svg.heading-box__icon
+            use(xlink:href='/img/icons.svg#icon-map-pin')
+
+  section.section-description
+    .overview-box
+      div
+        .overview-box__group
+          h2.heading-secondary.ma-bt-lg Quick facts
+          +overviewBox('Participants', `${room.capacity} people`, 'user')
+          +overviewBox('Rating', `${room.ratingsAverge} / 5`, 'star')
+    .description-box
+      h2.heading-secondary.ma-bt-lg= `About ${room.name} room`
+      - const parapraphs = room.description.split('\n');
+      each p in parapraphs
+        p.description__text= p
+  section.section-pictures
+    each img, i in room.image
+      .picture-box
+        img.picture-box__img(src=`/img/rooms/${img}`, alt=`The Park Camper Room ${i + 1}`, class=`picture-box__img--${i + 1}`)
+
+  section.section-reviews
+    .reviews
+      each review in room.reviews
+        +reviewCard(review)
+
+  section.section-cta
+    .cta
+      .cta__img.cta__img--logo
+        img(src='/img/logo-white.png', alt='Natours logo')
+      img.cta__img.cta__img--1(src=`/img/rooms/${room.image[1]}`, alt='room picture')
+      img.cta__img.cta__img--2(src=`/img/rooms/${room.image[2]}`, alt='room picture')
+      .cta__content
+        h2.heading-secondary What are you waiting for?
+        p.cta__text= `Transform your meeting into a memorable experience at ${room.name}. Elevate productivity in a setting designed for success. Book your room today and unlock the perfect environment for your next meeting!`
+
+        
+        if user
+          a.btn.btn--green.span-all-rows#book-tour(href=`/bookroom/${room.id}`) Book room now!
+        else
+          a.btn.btn--green.span-all-rows(href='/login') Log in to book room

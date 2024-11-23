@@ -1,0 +1,54 @@
+extends base
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg
+        use(xlink:href=`img/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          +navItem('/me', 'Settings', 'settings')
+          +navItem('/mybooking', 'My bookings', 'briefcase', true)
+          +navItem('#', 'My reviews', 'star')
+          +navItem('#', 'Billing', 'credit-card')
+
+        - if (user.role === 'admin')
+          .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+              +navItem('/managerooms', 'Manage rooms', 'map')
+              +navItem('/manageusers', 'Manage users', 'users')
+              +navItem('#', 'Manage reviews', 'star')
+              +navItem('#', 'Manage bookings', 'briefcase')
+
+      .user-view__content
+        .user-view__form-container
+          h2.heading-secondary.ma-bt-md My Bookings
+          
+          //- Table to display reservations
+          table.table
+            thead
+              tr
+                th Start Date
+                th End Date
+                th Action
+            tbody
+              each reservation in reservations
+                tr
+                  td= reservation.schedule.appointments[0].startDate
+                  td= reservation.schedule.appointments[0].endDate
+                  td
+                    form.form.form-reservation-delete(action=`/delete-reservation/${reservation._id}`, method='POST')
+                      input#bookId.form__input(type="hidden", name="bookId", value=reservation._id)
+                      button.btn.btn--small.btn--red(type="submit") Delete
+                  
+                    form.form.form-room-data
+                      input#bookId.form__input(type="hidden", name="bookId", value=reservation._id)
+                      a.btn.btn--green.span-all-rows#book-tour(href=`/updatebook/${reservation.id}`) Update
+
+        .line &nbsp;

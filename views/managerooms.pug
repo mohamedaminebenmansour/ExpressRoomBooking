@@ -1,0 +1,60 @@
+extends base
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg
+        use(xlink:href=`img/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          +navItem('/me', 'Settings', 'settings')
+          +navItem('/mybooking', 'My bookings', 'briefcase')
+          +navItem('#', 'My reviews', 'star')
+          +navItem('#', 'Billing', 'credit-card')
+
+        - if (user.role === 'admin')
+          .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+              +navItem('/managerooms', 'Manage rooms', 'map',true)
+              +navItem('#', 'Manage users', 'users')
+              +navItem('#', 'Manage reviews', 'star')
+              +navItem('#', 'Manage bookings', 'briefcase')
+
+      .user-view__content
+        .user-view__form-container
+          h2.heading-secondary.ma-bt-md Your account settings
+          
+          h1 Manage Rooms
+          //- Add room button
+          a.btn.btn--small.btn--green(href="/addroom") Add Room
+          //- Room cards
+
+          table.table
+            thead
+              tr
+                th Name
+                th price
+                th capacity
+                th Action
+            tbody
+              each room in rooms
+                tr
+                  td= room.name
+                  td= room.price
+                  td= room.capacity
+                  td
+                    form.form.form-room-data
+                      input#roomId.form__input(type="hidden", name="roomId", value=room._id)
+                      a.btn.btn--green.span-all-rows#book-tour(href=`/updateroom/${room.id}`) Update
+              
+                    form.form.form-room-delete
+                      input#roomId.form__input(type="hidden", name="roomId", value=room._id)
+                      button.btn.btn--small.btn--red(type="submit") Delete
+
+        .line &nbsp;

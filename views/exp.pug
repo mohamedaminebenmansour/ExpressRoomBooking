@@ -1,0 +1,24 @@
+.book-form
+      h2.heading-secondary.ma-bt-lg create your book!
+      form.form.form--book
+        .form__group
+          input#roomid(type='hidden', name='roomId', value=`${room.id}`)
+          label.form__label(for='name') Your name
+          input#name.form__input(type='text' placeholder='' required='')
+        .form__group
+          label.form__label(for='startDate') Select Start Date and Time:
+            input#startDate.form__input(type='datetime-local', id='startDate', name='startDate', required)
+        .form__group.ma-bt-md
+          label.form__label(for='duration') Duration (in minutes):
+            input#password.form__input(type='number', id='duration', name='duration', min='1', required)
+        .form__group
+          button.btn.btn--green Sign up
+
+
+form(action='/bookroom', method='POST') // Assuming POST method to book room
+            input(type='hidden', name='roomId', value=`${room.id}`)
+            label(for='startDate') Select Start Date and Time:
+            input(type='datetime-local', id='startDate', name='startDate', required)
+            label(for='duration') Duration (in minutes):
+            input(type='number', id='duration', name='duration', min='1', required)
+            button.btn.btn--green.span-all-rows(type='submit') Book room now!
